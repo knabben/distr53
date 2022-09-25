@@ -24,6 +24,8 @@ func NewDLLNode(value string) *DLLNode {
 }
 
 type DLL struct {
+	PartitionID int64
+
 	Tail *DLLNode
 	Head *DLLNode
 }

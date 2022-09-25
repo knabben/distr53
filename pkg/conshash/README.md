@@ -1,0 +1,1 @@
+BASED ON https://github.com/buraksezer/consistent

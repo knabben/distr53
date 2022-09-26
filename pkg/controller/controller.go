@@ -11,8 +11,6 @@ import (
 	"log"
 )
 
-type mapper map[string]linkedlist.Storage
-
 type Controller struct {
 	Config  *conshash.Config
 	Members []conshash.Member
@@ -67,10 +65,9 @@ func (c *Controller) DumpOnRoute53(hostedzone, domain string) {
 	svc := r.GetRoute53Service(r.GetConfig())
 	for record, v := range c.Mapper {
 		if len(v.GetAllValues()) > 0 {
-			log.Printf("Adding the following values: %s on %s\n", v.GetAllValues(), record)
 			record = fmt.Sprintf("%s.%s.", record, domain)
 			status := r.SaveRecord(svc, hostedzone, record, v.GetAllValues())
-			log.Printf("Finished with status: %s\n\n", status)
+			log.Printf("Added the following values: %s on %s finished with %s\n\n", v.GetAllValues(), record, status)
 		}
 	}
 }

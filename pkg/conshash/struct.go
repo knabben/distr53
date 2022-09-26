@@ -1,6 +1,8 @@
 package conshash
 
-import "errors"
+import (
+	"errors"
+)
 
 var (
 	//ErrInsufficientMemberCount represents an error which means there are not enough members to complete the task.

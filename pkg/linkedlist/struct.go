@@ -1,6 +1,9 @@
 package linkedlist
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // Storage defines the operations to be realized in the struct
 type Storage interface {
@@ -39,7 +42,7 @@ func (d *DLL) GetAllValues() []string {
 	values := []string{}
 	node := d.Head
 	for node != nil {
-		values = append(values, node.Value)
+		values = append(values, fmt.Sprintf("\"%s\"", node.Value))
 		node = node.Next
 	}
 	return values
